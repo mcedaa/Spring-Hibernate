@@ -2,7 +2,8 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.demo.Note" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
@@ -78,15 +79,22 @@
 	<!-- END #fh5co-header -->
 	<div class="container-fluid">
 		<div class="row fh5co-post-entry"> 
-			
-				<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-					<a href='${fn:escapeXml("cancelUrl")}' >fgdfgf</a>
-					<h2 class="fh5co-article-title"><a href="single.html">${note.title }</a></h2> 
-					<h3><a href="single.html"  style="color:#999999">${note.content}</a></h3>
-					<span class="fh5co-meta fh5co-date">6 Mart 2016</span>
-				</article>
-			
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+			<%
+			    List<Note> notlar = (List<Note>) request.getAttribute("notlar");
+			    if (notlar != null) {
+			        for (Note note : notlar) {
+			%>
+			            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+			                
+			                <h2 class="fh5co-article-title"><a href="single.html"><%= note.getTitle() %></a></h2> 
+			                <h3><a href="single.html"  style="color:#999999"><%= note.getContent() %></a></h3>
+			                <span class="fh5co-meta fh5co-date">6 Mart 2016</span>
+			            </article>
+			<%
+			        }
+			    }
+			%>
+						<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
 				<span class="fh5co-meta"><a href="single.html">Teknoloji</a></span>
 				<h2 class="fh5co-article-title"><a href="single.html">Blog Başlığı</a></h2> 
 				<h3><a href="single.html"  style="color:#999999">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</a></h3>
