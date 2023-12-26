@@ -78,22 +78,22 @@
 	</header>
 	<!-- END #fh5co-header -->
 	<div class="container-fluid">
-		<div class="row fh5co-post-entry"> 
-			<%
-			    List<Note> notlar = (List<Note>) request.getAttribute("notlar");
-			    if (notlar != null) {
-			        for (Note note : notlar) {
+		<div class="row fh5co-post-entry" id="list"> 
+<%-- 			<%
+			    //List<Note> notlar = (List<Note>) request.getAttribute("notlar");
+			    //if (notlar != null) {
+			      //  for (Note note : notlar) {
 			%>
-			            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-			                
+			           <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+			              
 			                <h2 class="fh5co-article-title"><a href="single.html"><%= note.getTitle() %></a></h2> 
 			                <h3><a href="single.html"  style="color:#999999"><%= note.getContent() %></a></h3>
 			                <span class="fh5co-meta fh5co-date">6 Mart 2016</span>
 			            </article>
 			<%
-			        }
-			    }
-			%>
+			        //}
+			   // }
+			%> --%>
 						<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
 				<span class="fh5co-meta"><a href="single.html">Teknoloji</a></span>
 				<h2 class="fh5co-article-title"><a href="single.html">Blog Başlığı</a></h2> 

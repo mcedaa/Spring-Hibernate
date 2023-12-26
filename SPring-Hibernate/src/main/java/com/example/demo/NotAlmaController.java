@@ -2,9 +2,7 @@ package com.example.demo;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-
-
-
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -75,6 +73,13 @@ public class NotAlmaController {
 		noteService.createNote(note, request);
 		
 		return new ResponseEntity<>("OK", HttpStatus.CREATED);
+
+	}
+	@RequestMapping(value = "/getNotes", method = RequestMethod.POST)
+	
+	public ResponseEntity<ArrayList<Note>> getNotes(HttpServletRequest request) {
+
+		return new ResponseEntity<>(noteService.getAll(1l), HttpStatus.CREATED);
 
 	}
 	

@@ -66,7 +66,7 @@ public class NoteDAO {
 	        Session session = sessionFactory.getCurrentSession();
 	        Transaction transaction = session.beginTransaction();
 	        try {
-	            Query query = session.createQuery("FROM Note WHERE user_id = :user_id", Note.class);
+	            Query query = session.createQuery("FROM Note WHERE user_id = :user_id order by id desc", Note.class);
 	            query.setParameter("user_id", user_id);
 	            ArrayList<Note> notes = (ArrayList<Note>) query.getResultList();
 	            transaction.commit();
