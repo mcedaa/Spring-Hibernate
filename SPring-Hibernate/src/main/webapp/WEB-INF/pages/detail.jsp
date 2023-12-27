@@ -81,7 +81,7 @@
 				<div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
 					<div class="row">
 						<div class="col-lg-8 cp-r animate-box">
-							<textarea class="form form-control" id="note_detail" style="height:400px; width:100%" placeholder="İçerik" disabled="disabled"></textarea>
+							<textarea class="form form-control" id="note_detail" style="height:400px; width:100%; cursor:default;" placeholder="İçerik" disabled="disabled"></textarea>
 						</div>
 						<div class="col-lg-4 animate-box">
 							<div class="fh5co-highlight right">
