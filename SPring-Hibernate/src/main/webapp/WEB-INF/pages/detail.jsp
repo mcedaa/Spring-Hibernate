@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
 
 	<head>
 	<meta charset="utf-8">
@@ -12,21 +13,21 @@
 	<meta name="author" content="Onur Ciner" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" href="./../favicon.ico">
 	<!-- Google Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700' rel='stylesheet' type='text/css'>
 	<!-- Animate -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="./../css/animate.css">
 	<!-- Icomoon -->
-	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="./../css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="./../css/bootstrap.css">
 
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="./../css/style.css">
 
 
 	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="./../js/modernizr-2.6.2.min.js"></script>
 
 	</head>
 	<body>
@@ -34,11 +35,11 @@
 		<a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i> <span>Kapat</span></span></a>
 		<div class="fh5co-bio">
 			<figure>
-				<img src="images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+				<img src="./../images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
 			</figure>
-			<h3 class="heading">HakkÄ±mda</h3>
+			<h3 class="heading">Hakkımda</h3>
 			<h2>Onur Ciner</h2>
-			<p>Bilgisayar MÃ¼hendisiyim. Web ve Mobil uygulama geliÅtirmekteyim.</p>
+			<p>Bilgisayar Mühendisiyim. Web ve Mobil uygulama geliştirmekteyim.</p>
 			<ul class="fh5co-social">
 				<li><a href="#"><i class="icon-twitter"></i></a></li>
 				<li><a href="#"><i class="icon-facebook"></i></a></li>
@@ -61,7 +62,7 @@
 					<li><a href="#"><i class="icon-instagram"></i></a></li>
 				</ul>
 				<div class="col-lg-12 col-md-12 text-center">
-					<h1 id="fh5co-logo"><a href="index.html">BLOÄUM</a></h1>
+					<h1 id="fh5co-logo"><a href="index.html">BLOĞUM</a></h1>
 				</div>
 
 			</div>
@@ -75,7 +76,7 @@
 			<article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
 				
 				<span class="fh5co-meta animate-box"><a href="single.html">Teknoloji</a></span>
-				<h2 class="fh5co-article-title animate-box"><a href="single.html">Blog BaÅlÄ±ÄÄ±</a></h2>
+				<h2 class="fh5co-article-title animate-box"><a href="single.html">Blog Başlığı</a></h2>
 				<span class="fh5co-meta fh5co-date animate-box">6 Mart 2016</span>
 				
 				<div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
@@ -96,7 +97,7 @@
 						</div>
 						<div class="col-lg-4 animate-box">
 							<div class="fh5co-highlight right">
-								<h4>KÄ±sa AÃ§Ä±klamasÄ±</h4>
+								<h4>Kısa Açıklaması</h4>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</p>
 							</div>
 						</div>
@@ -112,15 +113,15 @@
 	</footer>
 	
 	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
+	<script src="./../js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="./../js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="./../js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="./../js/jquery.waypoints.min.js"></script>
 	<!-- Main JS -->
-	<script src="js/main.js"></script>
+	<script src="./../js/main.js"></script>
 
 	</body>
 </html>
