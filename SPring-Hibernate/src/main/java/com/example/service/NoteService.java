@@ -25,6 +25,16 @@ public class NoteService {
 		note.setUser_id(1l);
 		return noteDAO.insert(note);
 	}
+	public Long updateNote(Note note, HttpServletRequest request) {
+		
+		noteDAO.update(note);
+		return 1l;
+	}
+	public Long deleteNote(Note note, HttpServletRequest request) {
+		
+		noteDAO.delete(note);
+		return 1l;
+	}
 	public ArrayList<Note> getAll(){
 		return noteDAO.getAll();
 		

@@ -37,22 +37,68 @@ public class NoteDAO {
     }
 	
 	public void update(Note note) {
-		sessionFactory.getCurrentSession().merge(note);
+		   Session session = sessionFactory.getCurrentSession();
+	        Transaction transaction = null;
+
+	        try {
+	            transaction = session.beginTransaction();
+	            session.merge(note);
+	            transaction.commit();
+	        } catch (Exception e) {
+	            if (transaction != null) {
+	                transaction.rollback();
+	            }
+	            throw e;
+	        }
 	}
-	public void delete(Note note) {
-		sessionFactory.getCurrentSession().remove(note);
-	}
+
+	@Transactional
+    public void delete(Note note) {
+		Session session = sessionFactory.getCurrentSession();
+		Transaction transaction = null;
+		try {
+		    transaction = session.beginTransaction();
+		    
+		    // Nesneyi oturuma ekle
+		    Note attachedNote = session.merge(note);
+		    
+		    // Nesneyi sil
+		    session.remove(attachedNote);
+		    
+		    transaction.commit();
+		} catch (Exception e) {
+		    if (transaction != null) {
+		        transaction.rollback();
+		    }
+		    throw e;
+		}
+
+    }
 	
 	//READ İŞLEMLERİ
 	
 	//tek bir notu id ye göre çağırma
-	@Transactional
-    public Note getFindById(Long id) {
-		Query query = sessionFactory.getCurrentSession().createQuery("FROM Note WHERE id = :id",Note.class);
-        query.setParameter("id", id);
-        Note note = (Note) query.getSingleResult();
-        return note;
-    }
+	
+	   @SuppressWarnings("rawtypes")
+	public Note getFindById(Long id) {
+	        Session session = sessionFactory.getCurrentSession();
+	        Transaction transaction = null;
+	        Note note = null;
+	        try {
+	            transaction = session.beginTransaction();
+	            Query query = session.createQuery("FROM Note WHERE id = :id");
+	            query.setParameter("id", id);
+	            note = (Note) ((org.hibernate.query.Query) query).uniqueResult();
+	            transaction.commit();
+	        } catch (Exception e) {
+	            if (transaction != null) {
+	                transaction.rollback();
+	            }
+	            throw e;
+	        }
+	        return note;
+	    }
+	
 	@SuppressWarnings("unchecked")
 	public ArrayList<Note> getAll() {
 	    Query query = sessionFactory.getCurrentSession().createQuery("FROM Note", Note.class);

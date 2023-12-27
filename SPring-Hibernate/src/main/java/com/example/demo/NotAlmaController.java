@@ -58,6 +58,7 @@ public class NotAlmaController {
 	*/
 	@GetMapping("/detay/{id}" )
 	public String detay(@PathVariable("id")Long id,Model model) {
+		model.addAttribute("id", id);
 		
 
 		return "detail";
@@ -81,11 +82,42 @@ public class NotAlmaController {
 		return new ResponseEntity<>("OK", HttpStatus.CREATED);
 
 	}
+	@RequestMapping(value = "/updateNote", method = RequestMethod.POST)
+	// notu arkadan öne yollamak için POST kullandık
+	public ResponseEntity<String> updateNote(@RequestBody Note note, HttpServletRequest request) {
+		Note oldNote=noteService.getNoteFindById(note.getId());
+		oldNote.setTitle(note.getTitle());
+		oldNote.setContent(note.getContent());
+	
+		//System.out.println(note.toString()); // not detaylarını görebilmek için
+		//request.setAttribute("mode", MODE_REGISTER);
+		noteService.updateNote(oldNote, request);
+		
+		return new ResponseEntity<>("OK", HttpStatus.CREATED);
+
+	}
+	@RequestMapping(value = "/deleteNote", method = RequestMethod.POST)
+	// notu arkadan öne yollamak için POST kullandık
+	public ResponseEntity<String> deleteNote(@RequestBody Note note, HttpServletRequest request) {
+		Note oldNote=noteService.getNoteFindById(note.getId());
+		noteService.deleteNote(oldNote, request);
+		
+		return new ResponseEntity<>("OK", HttpStatus.CREATED);
+
+	}
 	@RequestMapping(value = "/getNotes", method = RequestMethod.POST)
 	
 	public ResponseEntity<ArrayList<Note>> getNotes(HttpServletRequest request) {
 
 		return new ResponseEntity<>(noteService.getAll(1l), HttpStatus.CREATED);
+
+	}
+	
+	@RequestMapping(value = "/getNote", method = RequestMethod.POST)
+	
+	public ResponseEntity<Note> getNote(@RequestBody String id,HttpServletRequest request) {
+
+		return new ResponseEntity<>(noteService.getNoteFindById(Long.parseLong(id)), HttpStatus.CREATED);
 
 	}
 	
