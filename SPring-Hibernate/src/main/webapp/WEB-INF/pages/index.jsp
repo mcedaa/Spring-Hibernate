@@ -46,7 +46,7 @@
 				<img src="images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
 			</figure>
 			<h3 class="heading">Hakkımda</h3>
-			<h2>Onur Ciner</h2>
+			<h2>Edanur Yetiş</h2>
 			<p>Bilgisayar Mühendisiyim. Web ve Mobil uygulama geliştirmekteyim.</p>
 			<ul class="fh5co-social">
 				<li><a href="#"><i class="icon-twitter"></i></a></li>

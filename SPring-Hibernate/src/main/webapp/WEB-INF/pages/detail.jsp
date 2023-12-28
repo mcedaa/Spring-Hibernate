@@ -8,9 +8,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>BLOG</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="aÃ§Ä±klama" />
+	<meta name="description" content="açıklama" />
 	<meta name="keywords" content="arama kelimeleri" />
-	<meta name="author" content="Onur Ciner" />
+	<meta name="author" content="Edanur Yetiş" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="./../favicon.ico">
@@ -39,7 +39,7 @@
 				<img src="./../images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
 			</figure>
 			<h3 class="heading">Hakkımda</h3>
-			<h2>Onur Ciner</h2>
+			<h2>Edanur Yetiş</h2>
 			<p>Bilgisayar Mühendisiyim. Web ve Mobil uygulama geliştirmekteyim.</p>
 			<ul class="fh5co-social">
 				<li><a href="#"><i class="icon-twitter"></i></a></li>

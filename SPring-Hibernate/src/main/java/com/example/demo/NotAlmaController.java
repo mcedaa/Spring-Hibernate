@@ -21,10 +21,13 @@ import com.example.service.NoteService;
 
 @Controller
 public class NotAlmaController {
+	public static String url="http://localhost:8081/notalma";
 	
 	@Autowired
 	private NoteService noteService;
-
+	
+    @Autowired
+    private MailService mailService;
 
 	@RequestMapping("/")
 
@@ -59,9 +62,10 @@ public class NotAlmaController {
 	@GetMapping("/detay/{id}" )
 	public String detay(@PathVariable("id")Long id,Model model) {
 		model.addAttribute("id", id);
-		
+		mailService.registerMail("mailhesabı","123");
 
 		return "detail";
+		
 	}
 	@GetMapping("/ekle" )
 	public String ekle(Model model) {
