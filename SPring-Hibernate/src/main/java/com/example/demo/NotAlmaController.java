@@ -62,7 +62,7 @@ public class NotAlmaController {
 	@GetMapping("/detay/{id}" )
 	public String detay(@PathVariable("id")Long id,Model model) {
 		model.addAttribute("id", id);
-		mailService.registerMail("mailhesabı","123");
+		mailService.registerMail("yetisedanur@gmail.com","123");
 
 		return "detail";
 		
