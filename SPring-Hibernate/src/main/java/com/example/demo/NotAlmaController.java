@@ -2,6 +2,7 @@ package com.example.demo;
 
 import jakarta.servlet.http.HttpServletRequest;
 
+
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ import com.example.service.NoteService;
 
 @Controller
 public class NotAlmaController {
-	public static String url="http://localhost:8081/notalma";
+	public static String url="http://localhost:8081";
 	
 	@Autowired
 	private NoteService noteService;
@@ -29,15 +30,22 @@ public class NotAlmaController {
     @Autowired
     private MailService mailService;
 
-	@RequestMapping("/")
-
+	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String homee(Model model) {
 		
 		//model.addAttribute("baslik", "Not Alma");
-		model.addAttribute("notlar", noteService.getAll(1l));
+		model.addAttribute("notlar", noteService.getAll(1l));	
+		System.err.println("notkar :  " + noteService.getAll(1l).size() );
 		
+		return "redirect:/index";
+	}
+
+	@RequestMapping(value="/index", method=RequestMethod.GET)
+
+	public String index(Model model) {
 		
-		
+		//model.addAttribute("baslik", "Not Alma");
+		model.addAttribute("notlar", noteService.getAll(1l));	
 		System.err.println("notkar :  " + noteService.getAll(1l).size() );
 		
 		return "index";
@@ -62,7 +70,7 @@ public class NotAlmaController {
 	@GetMapping("/detay/{id}" )
 	public String detay(@PathVariable("id")Long id,Model model) {
 		model.addAttribute("id", id);
-		mailService.registerMail("","");
+		mailService.registerMail("edanuryetis5@gmail.com","123");
 
 		return "detail";
 		

@@ -1,16 +1,13 @@
 package com.example.demo;
 
 import java.util.Date;
-
-
-
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 
 @Entity
@@ -29,6 +26,14 @@ public class User {
 	private boolean active=false;
 	private Date creat_date = new Date();
 	private String user_key;
+	@Transient
+	private String pass2;
+	public String getPass2() {
+		return pass2;
+	}
+	public void setPass2(String pass2) {
+		this.pass2 = pass2;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -83,5 +88,12 @@ public class User {
 	public void setKey(String user_key) {
 		this.user_key = user_key;
 	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", name=" + name + ", surname=" + surname + ", email="
+				+ email + ", pass=" + pass + ", active=" + active + ", creat_date=" + creat_date + ", user_key="
+				+ user_key + ", pass2=" + pass2 + "]";
+	}
+	
 
 }

@@ -11,7 +11,7 @@ public class MailService {
 	private JavaMailSender mailSender;
 	public void registerMail(String mail, String key) {
 		SimpleMailMessage email = new SimpleMailMessage();
-		email.setFrom("");
+		email.setFrom("edanuryetis5@gmail.com");
 		email.setTo(mail);
 		email.setSubject("Üyeliği Tamamla");
 		email.setText("Üyeliği tamamlamak için aşağıdaki linke tıklayınız.\n\n"
