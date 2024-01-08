@@ -60,9 +60,15 @@ public class LoginController {
 		}
 		return new ResponseEntity<>("ERROR", HttpStatus.CREATED);
 	}
-	
-	
-			
+	@RequestMapping(value = "/controlUser", method = RequestMethod.POST)
+	public ResponseEntity<String> controlUser(@RequestBody User user, HttpServletRequest request) {
+		User userm = userService.getNoteFindByUsernameAndPass(user);
+		if(userm !=null ){
+			return new ResponseEntity<>("OK", HttpStatus.OK);
+		}
+		return new ResponseEntity<>("ERROR", HttpStatus.OK);
+	}
+				
 	private int control(User user) {
 		if(!user.getPass2().equals(user.getPass())){
 			return 1;

@@ -40,8 +40,8 @@ public class UserService {
 	}
 
 	
-	public User getNoteFindByUsernameAndPass(String username, String pass){
-		return userDAO.getFindByUsernameAndPass(username, pass);	
+	public User getNoteFindByUsernameAndPass(User user){
+		return userDAO.getFindByUsernameAndPass(user.getUsername(), user.getPass());	
 		}
 	
 	

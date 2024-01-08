@@ -28,6 +28,7 @@ public class User {
 	private String user_key;
 	@Transient
 	private String pass2;
+	
 	public String getPass2() {
 		return pass2;
 	}
