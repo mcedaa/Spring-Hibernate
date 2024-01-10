@@ -48,6 +48,12 @@ public class LoginController {
 	public String regist(Model model) {
 		return "register";
 	}
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+
+	public String logout(Model model,HttpServletRequest request) {
+		request.getSession().setAttribute("user",null);
+		return "redirect:/login";
+	}
 	
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	public ResponseEntity<String> addUser(@RequestBody User user, HttpServletRequest request) {
@@ -63,6 +69,7 @@ public class LoginController {
 	@RequestMapping(value = "/controlUser", method = RequestMethod.POST)
 	public ResponseEntity<String> controlUser(@RequestBody User user, HttpServletRequest request) {
 		User userm = userService.getNoteFindByUsernameAndPass(user);
+		request.getSession().setAttribute("user", userm);
 		if(userm !=null ){
 			return new ResponseEntity<>("OK", HttpStatus.OK);
 		}

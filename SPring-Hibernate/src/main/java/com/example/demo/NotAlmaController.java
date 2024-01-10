@@ -26,9 +26,7 @@ public class NotAlmaController {
 	
 	@Autowired
 	private NoteService noteService;
-	
-    @Autowired
-    private MailService mailService;
+
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String homee(Model model) {
@@ -42,9 +40,9 @@ public class NotAlmaController {
 
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 
-	public String index(Model model) {
+	public String index(Model model, HttpServletRequest req) {
 		
-		//model.addAttribute("baslik", "Not Alma");
+		model.addAttribute("user", req.getSession().getAttribute("user"));
 		model.addAttribute("notlar", noteService.getAll(1l));	
 		System.err.println("notkar :  " + noteService.getAll(1l).size() );
 		
@@ -70,7 +68,6 @@ public class NotAlmaController {
 	@GetMapping("/detay/{id}" )
 	public String detay(@PathVariable("id")Long id,Model model) {
 		model.addAttribute("id", id);
-		mailService.registerMail("edanuryetis5@gmail.com","123");
 
 		return "detail";
 		
@@ -120,16 +117,20 @@ public class NotAlmaController {
 	@RequestMapping(value = "/getNotes", method = RequestMethod.POST)
 	
 	public ResponseEntity<ArrayList<Note>> getNotes(HttpServletRequest request) {
-
-		return new ResponseEntity<>(noteService.getAll(1l), HttpStatus.CREATED);
+//id ye göre notları getiriyoruz
+		return new ResponseEntity<>(noteService.getAll(LoginFilter.user.getId()), HttpStatus.CREATED);
 
 	}
 	
 	@RequestMapping(value = "/getNote", method = RequestMethod.POST)
 	
 	public ResponseEntity<Note> getNote(@RequestBody String id,HttpServletRequest request) {
+		Note note= (noteService.getNoteFindById(Long.parseLong(id)));
+		if(note.getUser_id().equals(LoginFilter.user.getId())) {
+			return new ResponseEntity<>(noteService.getNoteFindById(Long.parseLong(id)), HttpStatus.CREATED);
 
-		return new ResponseEntity<>(noteService.getNoteFindById(Long.parseLong(id)), HttpStatus.CREATED);
+		}
+		return new ResponseEntity<>(null, HttpStatus.CREATED);
 
 	}
 	

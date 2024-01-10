@@ -50,13 +50,9 @@
 					class="img-responsive">
 			</figure>
 			<h3 class="heading">Hakkımda</h3>
-			<h2>Edanur Yetiş</h2>
-			<p>Bilgisayar Mühendisiyim. Web ve Mobil uygulama
-				geliştirmekteyim.</p>
+			<h2>${user.name} ${user.surname}</h2>
 			<ul class="fh5co-social">
-				<li><a href="#"><i class="icon-twitter"></i></a></li>
-				<li><a href="#"><i class="icon-facebook"></i></a></li>
-				<li><a href="#"><i class="icon-instagram"></i></a></li>
+				<li><a href="logout">Çıkış</a></li>
 			</ul>
 		</div>
 
